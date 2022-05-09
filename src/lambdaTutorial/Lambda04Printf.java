@@ -79,7 +79,7 @@ public class Lambda04Printf {
             System.out.printf("%-10s %20s %20s %20s\n","Universite","Bolum","Ogrenci Sayisi","Not Ortalamasi");
             unvList.
                     stream().
-                    sorted(Comparator.comparingInt(Universite::getOgrSayisi).reversed()).
+                    sorted(Comparator.comparing(Universite::getOgrSayisi).reversed()).
                     forEach(Lambda04Printf::yazdir);
 
         }

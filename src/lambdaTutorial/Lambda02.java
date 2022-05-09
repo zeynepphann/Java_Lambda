@@ -137,17 +137,21 @@ public class Lambda02 {
 
     // Task : List'teki elemanlardan en kucugunu 4 farklı yontem ile print ediniz.
     public static void minBul(List<Integer> sayi) {
+
         //1. yontem Method Reference --> Integer class
         Optional<Integer> minSayiInteger = sayi.stream().reduce(Integer::min);
         System.out.println(minSayiInteger);
+
         //2. yontem Method Reference --> Math class
         Optional<Integer> minSayiMath = sayi.stream().reduce(Math::min);
         System.out.println(minSayiMath);
+
         //3. yontem Lambda Expression
         int minSayiLJambda = (sayi.stream().reduce(Integer.MAX_VALUE, (x, y) -> x < y ? x : y));
         int minSayiLJambda1 = (sayi.stream().reduce(0, (x, y) -> x < y ? x : y));//yukarıaki ile aynı sonucu vermez
         System.out.println("xxxx"+minSayiLJambda);
         System.out.println("aaaa"+minSayiLJambda1);
+
         //4. yontem Method Reference --> Haluk class
         Optional<Integer> minSayiHaluk = sayi.stream().reduce(Lambda02::byHalukMin);
         System.out.println(minSayiHaluk);
